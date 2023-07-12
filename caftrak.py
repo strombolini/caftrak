@@ -18,14 +18,14 @@ for i in range(int(n_times)):
     amount_remaining += amount_consumed*(np.exp(-time_consumed/10)) #calculate remaining mg using exponential decay and 5h half-life
     #Plot caffeine graph below but don't show yet
     x = np.linspace(0, 12, 12)
-    y += amount_consumed*(np.exp((-time_consumed-x)/10))
+    y += amount_consumed*(np.exp((-time_consumed-x)/10))    
     fig, ax = plt.subplots()
-
+    plt.grid(axis='y', color='0.95')
     ax.plot(x, y, linewidth=2.0)
 print("---------------------------------")
 print("There is " + str(int(amount_remaining)) + "mg of caffeine left in your system. Press enter to plot your projected future caffeine concentration.")
 user_yes_plot = input()
 print("---------------------------------")
-plt.xlabel("Hours after absorption")
+plt.xlabel("Hours since now")
 plt.ylabel("mg of caffeine remaining")
 plt.show()
